@@ -1,2 +1,2 @@
 # AoC-Calendar-2020
-Scripts for Advent of Code Calendar 2020.
+Scripts for the puzzles of [Advent of Code](https://adventofcode.com/) Calendar 2020.
