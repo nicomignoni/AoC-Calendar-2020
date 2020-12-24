@@ -7,6 +7,8 @@ with open('day_5.txt') as f:
 # If F = 0 and B = 1, that FBFBBFF -> 0101100 base 2 -> 44 base 10.
 all_seats = list(range((2 ** 7) * (2 ** 3)))
 
+
+# Part 1 
 max_seat_ID = 0
 for seat in seats:
     row     = seat[:-3].replace('F', '0').replace('B', '1')
@@ -19,6 +21,9 @@ for seat in seats:
     if seat_ID > max_seat_ID:
         max_seat_ID = seat_ID
 
+print(max_seat_ID)
+
+# Part 2
 for i in range(len(all_seats) - 1):
     if math.fabs(all_seats[i + 1] - all_seats[i]) != 1:
         print(all_seats[i + 1])

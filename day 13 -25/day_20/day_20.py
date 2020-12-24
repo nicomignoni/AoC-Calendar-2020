@@ -1,3 +1,5 @@
+from math import sqrt
+
 with open('day_20.txt') as f:
     inpt = f.read().splitlines()
 
@@ -39,13 +41,15 @@ for i in range(0, LINES, ROWS + 2):
                            'left_conf' : None,
                            }
 
+SIDE = sqrt(len(tiles))
+
 for i in range(LINES):
     for j in range(i, LINES):
         if right_border(tiles[i]['tiles']) == left_border(tiles[j]['tiles']):
             tiles[i]['right_conf'] = j
             tiles[j]['left_conf'] = i
         elif 
-        
+     
         
 
 

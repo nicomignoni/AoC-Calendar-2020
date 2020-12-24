@@ -1,10 +1,10 @@
-tree = '#'
-
-right = [1, 3, 5, 7, 1]
-down = [1, 1, 1, 1, 2]
-
 with open('day_3.txt') as f:
     m = f.read().splitlines()
+
+# right[1] = 3 and down[1] = 1 corrisponds to Part 1. 
+tree = '#'
+right = [1, 3, 5, 7, 1]
+down = [1, 1, 1, 1, 2]
 
 results = list()
 

@@ -7,10 +7,8 @@ with open('day_2.txt') as f:
         letter = splitted_l[1][:-1]
         passwd = splitted_l[2]
 
-        if (passwd[int(policy[0]) - 1] == letter or passwd[int(policy[1]) - 1] == letter) and \
-           not (passwd[int(policy[0]) - 1] == letter and passwd[int(policy[1]) - 1] == letter):
+        if (passwd.count(letter) >= int(policy[0]) and passwd.count(letter) <= int(policy[1])):
             count += 1
-            print(l)
 
 print(count)
         

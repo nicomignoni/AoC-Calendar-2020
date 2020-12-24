@@ -1,6 +1,6 @@
 import numpy as np
 
-with open('puzzle_1.txt') as f:
+with open('day_1.txt') as f:
     nums = np.array([int(n) for n in f.readlines()])
 
 for i in range(len(nums)):

@@ -72,5 +72,7 @@ for doc in docs:
        eye_rule(doc)        and \
        passport_rule(doc):
         count += 1
+
+print(count)
     
     
