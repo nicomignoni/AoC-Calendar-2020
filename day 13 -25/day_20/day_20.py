@@ -41,14 +41,64 @@ for i in range(0, LINES, ROWS + 2):
                            'left_conf' : None,
                            }
 
-SIDE = sqrt(len(tiles))
+IDS = list(tiles.keys())
+for i in range(len(IDS)):
+    for j in range(i, len(IDS)):
+        if right_border(tiles[IDS[i]]['tile']) == left_border(tiles[IDS[j]]['tile']):
+            tiles[IDS[i]]['right_conf'] = IDS[j]
+            tiles[IDS[j]]['left_conf'] = IDS[i]
+        elif right_border(tiles[IDS[j]]['tile']) == left_border(tiles[IDS[i]]['tile']):
+            tiles[IDS[i]]['right_conf'] = IDS[i]
+            tiles[IDS[j]]['left_conf'] = IDS[j]
+        elif upper_border(tiles[IDS[i]]['tile']) == lower_border(tiles[IDS[j]]['tile']):
+            tiles[IDS[i]]['upper_conf'] = IDS[j]
+            tiles[IDS[j]]['lower_conf'] = IDS[i]
+        elif upper_border(tiles[IDS[j]]['tile']) == lower_border(tiles[IDS[i]]['tile']):
+            tiles[IDS[j]]['upper_conf'] = IDS[i]
+            tiles[IDS[i]]['lower_conf'] = IDS[j]
 
-for i in range(LINES):
-    for j in range(i, LINES):
-        if right_border(tiles[i]['tiles']) == left_border(tiles[j]['tiles']):
-            tiles[i]['right_conf'] = j
-            tiles[j]['left_conf'] = i
-        elif 
+        elif right_border(flipud(tiles[IDS[i]]['tile'])) == left_border(tiles[IDS[j]]['tile']):
+            tiles[IDS[i]]['right_conf'] = IDS[j]
+            tiles[IDS[j]]['left_conf'] = IDS[i]
+        elif right_border(tiles[IDS[j]]['tile']) == left_border(flipud(tiles[IDS[i]]['tile'])):
+            tiles[IDS[i]]['right_conf'] = IDS[i]
+            tiles[IDS[j]]['left_conf'] = IDS[j]
+        elif upper_border(flipud(tiles[IDS[i]]['tile'])) == lower_border(tiles[IDS[j]]['tile']):
+            tiles[IDS[i]]['upper_conf'] = IDS[j]
+            tiles[IDS[j]]['lower_conf'] = IDS[i]
+        elif upper_border(tiles[IDS[j]]['tile']) == lower_border(flipud(tiles[IDS[i]]['tile'])):
+            tiles[IDS[j]]['upper_conf'] = IDS[i]
+            tiles[IDS[i]]['lower_conf'] = IDS[j]
+
+        elif right_border(fliplr(tiles[IDS[i]]['tile'])) == left_border(tiles[IDS[j]]['tile']):
+            tiles[IDS[i]]['right_conf'] = IDS[j]
+            tiles[IDS[j]]['left_conf'] = IDS[i]
+        elif right_border(tiles[IDS[j]]['tile']) == left_border(fliplr(tiles[IDS[i]]['tile'])):
+            tiles[IDS[i]]['right_conf'] = IDS[i]
+            tiles[IDS[j]]['left_conf'] = IDS[j]
+        elif upper_border(fliplr(tiles[IDS[i]]['tile'])) == lower_border(tiles[IDS[j]]['tile']):
+            tiles[IDS[i]]['upper_conf'] = IDS[j]
+            tiles[IDS[j]]['lower_conf'] = IDS[i]
+        elif upper_border(tiles[IDS[j]]['tile']) == lower_border(fliplr(tiles[IDS[i]]['tile'])):
+            tiles[IDS[j]]['upper_conf'] = IDS[i]
+            tiles[IDS[i]]['lower_conf'] = IDS[j]
+
+        elif right_border(flipud(tiles[IDS[i]]['tile'])) == left_border(fliplr(tiles[IDS[j]]['tile'])):
+            tiles[IDS[i]]['right_conf'] = IDS[j]
+            tiles[IDS[j]]['left_conf'] = IDS[i]
+        elif right_border(fliplr(tiles[IDS[j]]['tile'])) == left_border(flipud(tiles[IDS[i]]['tile'])):
+            tiles[IDS[i]]['right_conf'] = IDS[i]
+            tiles[IDS[j]]['left_conf'] = IDS[j]
+        elif upper_border(flipud(tiles[IDS[i]]['tile'])) == lower_border(fliplr(tiles[IDS[j]]['tile'])):
+            tiles[IDS[i]]['upper_conf'] = IDS[j]
+            tiles[IDS[j]]['lower_conf'] = IDS[i]
+        elif upper_border(fliplr(tiles[IDS[j]]['tile'])) == lower_border(flipud(tiles[IDS[i]]['tile'])):
+            tiles[IDS[j]]['upper_conf'] = IDS[i]
+            tiles[IDS[i]]['lower_conf'] = IDS[j]
+
+corners = [tile_id for tile_id in tiles if [val for val in tiles[tile_id].values()].count(None) == 2]
+            
+        
      
         
 
